@@ -12,6 +12,8 @@
 		8CB92CA32C5911AD0061B995 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB92CA22C5911AD0061B995 /* Item.swift */; };
 		8CB92CA52C5911AE0061B995 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CB92CA42C5911AE0061B995 /* Assets.xcassets */; };
 		8CB92CA82C5911AE0061B995 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CB92CA72C5911AE0061B995 /* Preview Assets.xcassets */; };
+		8CB92CB02C5913C70061B995 /* Horoscope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB92CAF2C5913C70061B995 /* Horoscope.swift */; };
+		8CB92CB42C59154A0061B995 /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB92CB32C59154A0061B995 /* Fetcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		8CB92CA22C5911AD0061B995 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		8CB92CA42C5911AE0061B995 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8CB92CA72C5911AE0061B995 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8CB92CAF2C5913C70061B995 /* Horoscope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Horoscope.swift; sourceTree = "<group>"; };
+		8CB92CB32C59154A0061B995 /* Fetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 		8CB92C9D2C5911AD0061B995 /* Scopes */ = {
 			isa = PBXGroup;
 			children = (
+				8CB92CB22C5914A60061B995 /* Services */,
+				8CB92CB12C5914890061B995 /* Models */,
 				8CB92C9E2C5911AD0061B995 /* ScopesApp.swift */,
 				8CB92CA02C5911AD0061B995 /* ContentView.swift */,
 				8CB92CA22C5911AD0061B995 /* Item.swift */,
@@ -68,6 +74,22 @@
 				8CB92CA72C5911AE0061B995 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8CB92CB12C5914890061B995 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8CB92CAF2C5913C70061B995 /* Horoscope.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8CB92CB22C5914A60061B995 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8CB92CB32C59154A0061B995 /* Fetcher.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,8 +162,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CB92CB02C5913C70061B995 /* Horoscope.swift in Sources */,
 				8CB92CA12C5911AD0061B995 /* ContentView.swift in Sources */,
 				8CB92CA32C5911AD0061B995 /* Item.swift in Sources */,
+				8CB92CB42C59154A0061B995 /* Fetcher.swift in Sources */,
 				8CB92C9F2C5911AD0061B995 /* ScopesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,6 +302,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Scopes/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Scopes;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -306,6 +331,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Scopes/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Scopes;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
