@@ -17,9 +17,14 @@ struct ContentView: View {
                 .modelContext(modelContext)
                 .tabItem {
                     Image(systemName: "ev.plug.dc.chademo.fill")
-                    Text("Demo")
+                    Text("SwiftData Demo")
                 }
                 .tag(0)
+            HoroscopeView(emojiScope: "😷🥱🫥")
+                .tabItem {
+                    Image(systemName: "gyroscope")
+                    Text("Horoscope")
+                }
             
         }
     }

@@ -16,6 +16,7 @@
 		8CB92CB42C59154A0061B995 /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB92CB32C59154A0061B995 /* Fetcher.swift */; };
 		8CB92CB92C59AC310061B995 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB92CB82C59AC310061B995 /* ContentView.swift */; };
 		8CB92CBB2C59AF940061B995 /* HoroscopeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB92CBA2C59AF940061B995 /* HoroscopeView.swift */; };
+		8CB92CC02C59BF000061B995 /* HoroscopeListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB92CBF2C59BF000061B995 /* HoroscopeListItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		8CB92CB32C59154A0061B995 /* Fetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
 		8CB92CB82C59AC310061B995 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8CB92CBA2C59AF940061B995 /* HoroscopeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoroscopeView.swift; sourceTree = "<group>"; };
+		8CB92CBF2C59BF000061B995 /* HoroscopeListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoroscopeListItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 		8CB92C9D2C5911AD0061B995 /* Scopes */ = {
 			isa = PBXGroup;
 			children = (
+				8CB92CBC2C59B6E70061B995 /* Fragments */,
 				8CB92CB72C59ABE80061B995 /* Views */,
 				8CB92CB22C5914A60061B995 /* Services */,
 				8CB92CB12C5914890061B995 /* Models */,
@@ -104,6 +107,14 @@
 				8CB92CBA2C59AF940061B995 /* HoroscopeView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		8CB92CBC2C59B6E70061B995 /* Fragments */ = {
+			isa = PBXGroup;
+			children = (
+				8CB92CBF2C59BF000061B995 /* HoroscopeListItem.swift */,
+			);
+			path = Fragments;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +194,7 @@
 				8CB92CBB2C59AF940061B995 /* HoroscopeView.swift in Sources */,
 				8CB92CB42C59154A0061B995 /* Fetcher.swift in Sources */,
 				8CB92C9F2C5911AD0061B995 /* ScopesApp.swift in Sources */,
+				8CB92CC02C59BF000061B995 /* HoroscopeListItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
