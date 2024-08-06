@@ -64,17 +64,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8C4209E82C62D5A600D798FE /* Sample */ = {
-			isa = PBXGroup;
-			children = (
-				8C4209E92C62D5C900D798FE /* sample_user.json */,
-				8C4209EB2C62D5E500D798FE /* sample_horoscope.json */,
-				8C4209ED2C62D5F800D798FE /* sample_users.json */,
-				8C4209F12C62D61E00D798FE /* sample_error.json */,
-			);
-			path = Sample;
-			sourceTree = "<group>";
-		};
 		8CB92C922C5911AD0061B995 = {
 			isa = PBXGroup;
 			children = (
@@ -95,7 +84,10 @@
 			isa = PBXGroup;
 			children = (
 				8C4209EF2C62D60B00D798FE /* sample_horoscopes.json */,
-				8C4209E82C62D5A600D798FE /* Sample */,
+				8C4209E92C62D5C900D798FE /* sample_user.json */,
+				8C4209EB2C62D5E500D798FE /* sample_horoscope.json */,
+				8C4209ED2C62D5F800D798FE /* sample_users.json */,
+				8C4209F12C62D61E00D798FE /* sample_error.json */,
 				8CB92CBC2C59B6E70061B995 /* Fragments */,
 				8CB92CB72C59ABE80061B995 /* Views */,
 				8CB92CB22C5914A60061B995 /* Services */,
