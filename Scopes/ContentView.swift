@@ -13,18 +13,17 @@ struct ContentView: View {
     @State private var selectedTab = 0
     var body: some View {
         TabView(selection: $selectedTab) {
-            DemoView()
+            HoroscopeListView()
                 .modelContext(modelContext)
                 .tabItem {
-                    Image(systemName: "ev.plug.dc.chademo.fill")
-                    Text("SwiftData Demo")
-                }
-                .tag(0)
-            HoroscopeView(emojiScope: "😷🥱🫥")
-                .tabItem {
                     Image(systemName: "gyroscope")
-                    Text("Horoscope")
-                }
+                    Text("Horoscopes")
+                }.tag(0)
+            UserDetailsView()
+                .tabItem {
+                    Image(systemName: "person.fill")
+                    Text("User")
+                }.tag(1)
             
         }
     }

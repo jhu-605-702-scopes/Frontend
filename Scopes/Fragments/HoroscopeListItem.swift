@@ -15,10 +15,21 @@ struct HoroscopeListItem: View {
     }
     
     var body: some View {
-        Text("hi!")
+        Text(horoscope.date, formatter: DateFormatter.MMddYYYYFormatter)
     }
 }
 
+extension DateFormatter {
+    static let MMddYYYYFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd/yyyy"
+        return formatter
+    }()
+}
+
+
 #Preview {
-    HoroscopeListItem(Horoscope(date: Date(), emojis: "🫢🫡🤫", feedback: ""))
+    HoroscopeListItem(
+        Horoscope(date: Date(), emojis: ["🫢","🫡","🤫"], feedback: "")
+    )
 }

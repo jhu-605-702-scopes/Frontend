@@ -13,6 +13,7 @@ struct ScopesApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
+            Horoscope.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -22,6 +23,9 @@ struct ScopesApp: App {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
+
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+
 
     var body: some Scene {
         WindowGroup {
