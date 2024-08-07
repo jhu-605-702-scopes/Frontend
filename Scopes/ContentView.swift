@@ -9,8 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-
     @State private var selectedTab = 0
+    
+
     var body: some View {
         TabView(selection: $selectedTab) {
             HoroscopeListView()
@@ -24,10 +25,10 @@ struct ContentView: View {
                     Image(systemName: "person.fill")
                     Text("User")
                 }.tag(1)
-            
         }
     }
 }
+
 
 
 #Preview {

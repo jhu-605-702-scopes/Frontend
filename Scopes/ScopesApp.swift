@@ -10,10 +10,16 @@ import SwiftData
 
 @main
 struct ScopesApp: App {
+    
+    @AppStorage("isUserLoggedIn") private var isUserLoggedIn = false
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+
+    
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
             Horoscope.self,
+            User.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -24,12 +30,15 @@ struct ScopesApp: App {
         }
     }()
 
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if isUserLoggedIn {
+                ContentView()
+            } else {
+                LoginSignupView(isUserLoggedIn: $isUserLoggedIn)
+            }
         }
         .modelContainer(sharedModelContainer)
     }
