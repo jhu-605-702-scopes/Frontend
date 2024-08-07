@@ -17,6 +17,7 @@
 		8C4209F22C62D61E00D798FE /* sample_error.json in Resources */ = {isa = PBXBuildFile; fileRef = 8C4209F12C62D61E00D798FE /* sample_error.json */; };
 		8C4209F42C62E56400D798FE /* HoroscopeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4209F32C62E56400D798FE /* HoroscopeListView.swift */; };
 		8C4209F62C62EBB300D798FE /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4209F52C62EBB300D798FE /* UserDetailsView.swift */; };
+		8C4209FA2C62EF9800D798FE /* LoginSignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4209F92C62EF9800D798FE /* LoginSignupView.swift */; };
 		8CB92C9F2C5911AD0061B995 /* ScopesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB92C9E2C5911AD0061B995 /* ScopesApp.swift */; };
 		8CB92CA12C5911AD0061B995 /* DemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB92CA02C5911AD0061B995 /* DemoView.swift */; };
 		8CB92CA32C5911AD0061B995 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB92CA22C5911AD0061B995 /* Item.swift */; };
@@ -40,6 +41,7 @@
 		8C4209F12C62D61E00D798FE /* sample_error.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sample_error.json; sourceTree = "<group>"; };
 		8C4209F32C62E56400D798FE /* HoroscopeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoroscopeListView.swift; sourceTree = "<group>"; };
 		8C4209F52C62EBB300D798FE /* UserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsView.swift; sourceTree = "<group>"; };
+		8C4209F92C62EF9800D798FE /* LoginSignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSignupView.swift; sourceTree = "<group>"; };
 		8CB92C9B2C5911AD0061B995 /* Scopes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scopes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CB92C9E2C5911AD0061B995 /* ScopesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScopesApp.swift; sourceTree = "<group>"; };
 		8CB92CA02C5911AD0061B995 /* DemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoView.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				8CB92CBA2C59AF940061B995 /* HoroscopeDetailedView.swift */,
 				8C4209F32C62E56400D798FE /* HoroscopeListView.swift */,
 				8C4209F52C62EBB300D798FE /* UserDetailsView.swift */,
+				8C4209F92C62EF9800D798FE /* LoginSignupView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				8CB92CB42C59154A0061B995 /* Fetcher.swift in Sources */,
 				8CB92C9F2C5911AD0061B995 /* ScopesApp.swift in Sources */,
 				8C4209E52C62D2B400D798FE /* Error.swift in Sources */,
+				8C4209FA2C62EF9800D798FE /* LoginSignupView.swift in Sources */,
 				8CB92CC02C59BF000061B995 /* HoroscopeListItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,6 +372,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Scopes/Preview Content\"";
+				DEVELOPMENT_TEAM = UYPY43BUFP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Scopes;
@@ -397,6 +402,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Scopes/Preview Content\"";
+				DEVELOPMENT_TEAM = UYPY43BUFP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Scopes;
