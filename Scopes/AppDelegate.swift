@@ -7,9 +7,12 @@
 
 import Foundation
 import UIKit
+import AWSCore
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        return true
+        let awsCredentialsProvider = AWSStaticCredentialsProvider(accessKey: <#T##String#>, secretKey: <#T##String#>)
+        
     }
+        
 }
