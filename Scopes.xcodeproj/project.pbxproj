@@ -20,7 +20,6 @@
 		8C4209FA2C62EF9800D798FE /* LoginSignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4209F92C62EF9800D798FE /* LoginSignupView.swift */; };
 		8C4209FE2C630EFD00D798FE /* AWSCore in Frameworks */ = {isa = PBXBuildFile; productRef = 8C4209FD2C630EFD00D798FE /* AWSCore */; };
 		8C420A002C630EFD00D798FE /* AWSSNS in Frameworks */ = {isa = PBXBuildFile; productRef = 8C4209FF2C630EFD00D798FE /* AWSSNS */; };
-		8C420A072C630FC100D798FE /* AWSConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C420A052C630FC100D798FE /* AWSConfig.swift */; };
 		8CB92C9F2C5911AD0061B995 /* ScopesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB92C9E2C5911AD0061B995 /* ScopesApp.swift */; };
 		8CB92CA12C5911AD0061B995 /* DemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB92CA02C5911AD0061B995 /* DemoView.swift */; };
 		8CB92CA32C5911AD0061B995 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB92CA22C5911AD0061B995 /* Item.swift */; };
@@ -46,7 +45,6 @@
 		8C4209F52C62EBB300D798FE /* UserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsView.swift; sourceTree = "<group>"; };
 		8C4209F92C62EF9800D798FE /* LoginSignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSignupView.swift; sourceTree = "<group>"; };
 		8C4209FB2C630CE200D798FE /* ScopesDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScopesDebug.entitlements; sourceTree = "<group>"; };
-		8C420A052C630FC100D798FE /* AWSConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSConfig.swift; sourceTree = "<group>"; };
 		8CB92C9B2C5911AD0061B995 /* Scopes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scopes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CB92C9E2C5911AD0061B995 /* ScopesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScopesApp.swift; sourceTree = "<group>"; };
 		8CB92CA02C5911AD0061B995 /* DemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoView.swift; sourceTree = "<group>"; };
@@ -73,21 +71,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8C420A042C630FA900D798FE /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
-		8C420A062C630FC100D798FE /* Config */ = {
-			isa = PBXGroup;
-			children = (
-				8C420A052C630FC100D798FE /* AWSConfig.swift */,
-			);
-			path = Config;
-			sourceTree = "<group>";
-		};
 		8CB92C922C5911AD0061B995 = {
 			isa = PBXGroup;
 			children = (
@@ -107,8 +90,6 @@
 		8CB92C9D2C5911AD0061B995 /* Scopes */ = {
 			isa = PBXGroup;
 			children = (
-				8C420A062C630FC100D798FE /* Config */,
-				8C420A042C630FA900D798FE /* New Group */,
 				8C4209FB2C630CE200D798FE /* ScopesDebug.entitlements */,
 				8C4209EF2C62D60B00D798FE /* sample_horoscopes.json */,
 				8C4209E92C62D5C900D798FE /* sample_user.json */,
@@ -268,7 +249,6 @@
 				8C4209F62C62EBB300D798FE /* UserDetailsView.swift in Sources */,
 				8CB92CB42C59154A0061B995 /* Fetcher.swift in Sources */,
 				8CB92C9F2C5911AD0061B995 /* ScopesApp.swift in Sources */,
-				8C420A072C630FC100D798FE /* AWSConfig.swift in Sources */,
 				8C4209E52C62D2B400D798FE /* Error.swift in Sources */,
 				8C4209FA2C62EF9800D798FE /* LoginSignupView.swift in Sources */,
 				8CB92CC02C59BF000061B995 /* HoroscopeListItem.swift in Sources */,
@@ -415,6 +395,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -445,6 +426,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

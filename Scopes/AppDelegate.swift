@@ -11,12 +11,7 @@ import AWSCore
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        
-        // MARK: AWS Configuration
-        let awsCredentialsProvider = AWSStaticCredentialsProvider(accessKey: AWSConfig.awsAccessKey, secretKey: AWSConfig.awsSecretKey)
-        let awsConfiguration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: awsCredentialsProvider)
-        AWSServiceManager.default().defaultServiceConfiguration = awsConfiguration
-        
+                
         // MARK: Notification register
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, _ in
             guard granted else { return }
