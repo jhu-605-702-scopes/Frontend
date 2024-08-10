@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ScopesError: Codable {
+struct ScopesError: Codable, Error {
     let code: Int
     let message: String
     

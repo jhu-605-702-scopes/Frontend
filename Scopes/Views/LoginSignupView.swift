@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import Pow
 
 struct LoginSignupView: View {
     @Binding var isUserLoggedIn: Bool
@@ -16,7 +17,19 @@ struct LoginSignupView: View {
     @State private var username = ""
     @State private var name = ""
     @State private var isLoginMode = true
+    @State private var isLoading = false
+    @State private var loginAttempts = 0
+    @State private var isError = false
 
+    private var isFormValid: Bool {
+        if isLoginMode {
+            return !email.isEmpty && !password.isEmpty
+        } else {
+            return !email.isEmpty && !password.isEmpty && !username.isEmpty && !name.isEmpty
+        }
+    }
+
+    
     var body: some View {
         NavigationView {
             Form {
@@ -33,18 +46,38 @@ struct LoginSignupView: View {
                         TextField("Name", text: $name)
                     }
                 }
+                .disabled(isLoading)
 
                 Section {
                     Button(action: {
                         if isLoginMode {
-                            loadSampleUser()
+                            Task {
+                                await logIn()
+                            }
                         } else {
-                            signUp()
+                            Task {
+                                await signUp()
+                            }
                         }
                     }) {
-                        Text(isLoginMode ? "Log In" : "Sign Up")
+                        if isLoading {
+                            ProgressView()
+                                .frame(maxWidth: .infinity)
+                        } else {
+                            Text(isLoginMode ? "Log In" : "Sign Up")
+                                .frame(maxWidth: .infinity)
+                                .foregroundColor(.white)
+                        }
                     }
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(isError ? Color.red : !isFormValid ? Color.gray : Color.indigo)
+                    .cornerRadius(10)
                 }
+                .disabled(!isFormValid || isLoading)
+                .changeEffect(.shake(rate: .fast), value: loginAttempts)
+                .listRowInsets(EdgeInsets())
+
 
                 Section {
                     Button(action: {
@@ -53,8 +86,10 @@ struct LoginSignupView: View {
                         Text(isLoginMode ? "Need an account? Sign Up" : "Already have an account? Log In")
                     }
                 }
+                .disabled(isLoading)
+
             }
-            .navigationTitle(isLoginMode ? "Login" : "Sign Up")
+            .navigationTitle("Scopes")
         }
     }
 
@@ -84,20 +119,59 @@ struct LoginSignupView: View {
             print("Error loading or decoding JSON: \(error)")
         }
     }
+    
+    private func logIn() async {
+        isLoading = true
+//        defer { isLoading = false }
+//        do {
+//            print("Hi")
+//        }
+    }
 
-    private func signUp() {
-        let newUser = User(id: Int.random(in: 1...1000000),
-                           name: name,
-                           username: username,
-                           email: email)
-        modelContext.insert(newUser)
-
+    private func signUp() async {
+        isLoading.toggle()
+        defer { isLoading = false }
+        
         do {
+            let user = try await Requests.shared.signUp(name: name, username: username, email: email, password: password)
+            modelContext.insert(user)
             try modelContext.save()
+            
             isUserLoggedIn = true
+        } catch let scopesError as ScopesError {
+            print("Sign up error: \(scopesError.message)")
         } catch {
-            print("Error saving new user: \(error)")
+            fatalError("Unexpected error: \(error)")
         }
     }
 }
 
+struct LogInSignUpResponse: Codable {
+    let user: User
+}
+
+struct SignUpData: Codable {
+    let name: String
+    let username: String
+    let email: String
+    let password: String
+}
+
+struct LogInData: Codable {
+    let email: String
+    let password: String
+}
+
+extension Requests {
+    func signUp(name: String, username: String, email: String, password: String) async throws -> User {
+        let signUpData = SignUpData(name: name, username: username, email: email, password: password)
+        let response: LogInSignUpResponse = try await post("/users", body: signUpData)
+        return response.user
+    }
+    
+    func logIn(email: String, password: String) async throws -> User {
+        let logInData = LogInData(email: email, password: password)
+//        let response: LogInSignUpResponse = try await post("/")
+        return User(id: 1, name: "a", username: "b", email: "c")
+    }
+}

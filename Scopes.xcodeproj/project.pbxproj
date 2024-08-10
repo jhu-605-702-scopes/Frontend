@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8C4209E32C62D24400D798FE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4209E22C62D24400D798FE /* User.swift */; };
-		8C4209E52C62D2B400D798FE /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4209E42C62D2B400D798FE /* Error.swift */; };
+		8C4209E52C62D2B400D798FE /* ScopesError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4209E42C62D2B400D798FE /* ScopesError.swift */; };
 		8C4209E72C62D4A900D798FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4209E62C62D4A900D798FE /* AppDelegate.swift */; };
 		8C4209EA2C62D5C900D798FE /* sample_user.json in Resources */ = {isa = PBXBuildFile; fileRef = 8C4209E92C62D5C900D798FE /* sample_user.json */; };
 		8C4209EC2C62D5E500D798FE /* sample_horoscope.json in Resources */ = {isa = PBXBuildFile; fileRef = 8C4209EB2C62D5E500D798FE /* sample_horoscope.json */; };
@@ -18,21 +18,20 @@
 		8C4209F42C62E56400D798FE /* HoroscopeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4209F32C62E56400D798FE /* HoroscopeListView.swift */; };
 		8C4209F62C62EBB300D798FE /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4209F52C62EBB300D798FE /* UserDetailsView.swift */; };
 		8C4209FA2C62EF9800D798FE /* LoginSignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4209F92C62EF9800D798FE /* LoginSignupView.swift */; };
-		8C4209FE2C630EFD00D798FE /* AWSCore in Frameworks */ = {isa = PBXBuildFile; productRef = 8C4209FD2C630EFD00D798FE /* AWSCore */; };
-		8C420A002C630EFD00D798FE /* AWSSNS in Frameworks */ = {isa = PBXBuildFile; productRef = 8C4209FF2C630EFD00D798FE /* AWSSNS */; };
+		8CAA6FD32C67DCCF00BF2844 /* Pow in Frameworks */ = {isa = PBXBuildFile; productRef = 8CAA6FD22C67DCCF00BF2844 /* Pow */; };
+		8CAA6FD62C67ED7D00BF2844 /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAA6FD52C67ED7D00BF2844 /* Validators.swift */; };
 		8CB92C9F2C5911AD0061B995 /* ScopesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB92C9E2C5911AD0061B995 /* ScopesApp.swift */; };
 		8CB92CA52C5911AE0061B995 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CB92CA42C5911AE0061B995 /* Assets.xcassets */; };
 		8CB92CA82C5911AE0061B995 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CB92CA72C5911AE0061B995 /* Preview Assets.xcassets */; };
 		8CB92CB02C5913C70061B995 /* Horoscope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB92CAF2C5913C70061B995 /* Horoscope.swift */; };
-		8CB92CB42C59154A0061B995 /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB92CB32C59154A0061B995 /* Fetcher.swift */; };
+		8CB92CB42C59154A0061B995 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB92CB32C59154A0061B995 /* Requests.swift */; };
 		8CB92CB92C59AC310061B995 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB92CB82C59AC310061B995 /* ContentView.swift */; };
 		8CB92CBB2C59AF940061B995 /* HoroscopeDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB92CBA2C59AF940061B995 /* HoroscopeDetailedView.swift */; };
-		8CB92CC02C59BF000061B995 /* HoroscopeListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB92CBF2C59BF000061B995 /* HoroscopeListItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8C4209E22C62D24400D798FE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		8C4209E42C62D2B400D798FE /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		8C4209E42C62D2B400D798FE /* ScopesError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScopesError.swift; sourceTree = "<group>"; };
 		8C4209E62C62D4A900D798FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C4209E92C62D5C900D798FE /* sample_user.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sample_user.json; sourceTree = "<group>"; };
 		8C4209EB2C62D5E500D798FE /* sample_horoscope.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sample_horoscope.json; sourceTree = "<group>"; };
@@ -45,15 +44,15 @@
 		8C4209FB2C630CE200D798FE /* ScopesDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScopesDebug.entitlements; sourceTree = "<group>"; };
 		8CAA6FCF2C67A42B00BF2844 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8CAA6FD02C67A44300BF2844 /* ScopesRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScopesRelease.entitlements; sourceTree = "<group>"; };
+		8CAA6FD52C67ED7D00BF2844 /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
 		8CB92C9B2C5911AD0061B995 /* Scopes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scopes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CB92C9E2C5911AD0061B995 /* ScopesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScopesApp.swift; sourceTree = "<group>"; };
 		8CB92CA42C5911AE0061B995 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8CB92CA72C5911AE0061B995 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8CB92CAF2C5913C70061B995 /* Horoscope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Horoscope.swift; sourceTree = "<group>"; };
-		8CB92CB32C59154A0061B995 /* Fetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
+		8CB92CB32C59154A0061B995 /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
 		8CB92CB82C59AC310061B995 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8CB92CBA2C59AF940061B995 /* HoroscopeDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoroscopeDetailedView.swift; sourceTree = "<group>"; };
-		8CB92CBF2C59BF000061B995 /* HoroscopeListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoroscopeListItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,14 +60,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C4209FE2C630EFD00D798FE /* AWSCore in Frameworks */,
-				8C420A002C630EFD00D798FE /* AWSSNS in Frameworks */,
+				8CAA6FD32C67DCCF00BF2844 /* Pow in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8CAA6FD42C67ED6900BF2844 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8CAA6FD52C67ED7D00BF2844 /* Validators.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		8CB92C922C5911AD0061B995 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +94,7 @@
 		8CB92C9D2C5911AD0061B995 /* Scopes */ = {
 			isa = PBXGroup;
 			children = (
+				8CAA6FD42C67ED6900BF2844 /* Extensions */,
 				8CAA6FD02C67A44300BF2844 /* ScopesRelease.entitlements */,
 				8CAA6FCF2C67A42B00BF2844 /* Info.plist */,
 				8C4209FB2C630CE200D798FE /* ScopesDebug.entitlements */,
@@ -96,7 +103,6 @@
 				8C4209EB2C62D5E500D798FE /* sample_horoscope.json */,
 				8C4209ED2C62D5F800D798FE /* sample_users.json */,
 				8C4209F12C62D61E00D798FE /* sample_error.json */,
-				8CB92CBC2C59B6E70061B995 /* Fragments */,
 				8CB92CB72C59ABE80061B995 /* Views */,
 				8CB92CB22C5914A60061B995 /* Services */,
 				8CB92CB12C5914890061B995 /* Models */,
@@ -122,7 +128,7 @@
 			children = (
 				8CB92CAF2C5913C70061B995 /* Horoscope.swift */,
 				8C4209E22C62D24400D798FE /* User.swift */,
-				8C4209E42C62D2B400D798FE /* Error.swift */,
+				8C4209E42C62D2B400D798FE /* ScopesError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -130,7 +136,7 @@
 		8CB92CB22C5914A60061B995 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				8CB92CB32C59154A0061B995 /* Fetcher.swift */,
+				8CB92CB32C59154A0061B995 /* Requests.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -144,14 +150,6 @@
 				8C4209F92C62EF9800D798FE /* LoginSignupView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		8CB92CBC2C59B6E70061B995 /* Fragments */ = {
-			isa = PBXGroup;
-			children = (
-				8CB92CBF2C59BF000061B995 /* HoroscopeListItem.swift */,
-			);
-			path = Fragments;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,8 +169,7 @@
 			);
 			name = Scopes;
 			packageProductDependencies = (
-				8C4209FD2C630EFD00D798FE /* AWSCore */,
-				8C4209FF2C630EFD00D798FE /* AWSSNS */,
+				8CAA6FD22C67DCCF00BF2844 /* Pow */,
 			);
 			productName = Scopes;
 			productReference = 8CB92C9B2C5911AD0061B995 /* Scopes.app */;
@@ -203,7 +200,7 @@
 			);
 			mainGroup = 8CB92C922C5911AD0061B995;
 			packageReferences = (
-				8C4209FC2C630EFD00D798FE /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */,
+				8CAA6FD12C67DCCF00BF2844 /* XCRemoteSwiftPackageReference "Pow" */,
 			);
 			productRefGroup = 8CB92C9C2C5911AD0061B995 /* Products */;
 			projectDirPath = "";
@@ -243,11 +240,11 @@
 				8CB92CBB2C59AF940061B995 /* HoroscopeDetailedView.swift in Sources */,
 				8C4209E32C62D24400D798FE /* User.swift in Sources */,
 				8C4209F62C62EBB300D798FE /* UserDetailsView.swift in Sources */,
-				8CB92CB42C59154A0061B995 /* Fetcher.swift in Sources */,
+				8CB92CB42C59154A0061B995 /* Requests.swift in Sources */,
+				8CAA6FD62C67ED7D00BF2844 /* Validators.swift in Sources */,
 				8CB92C9F2C5911AD0061B995 /* ScopesApp.swift in Sources */,
-				8C4209E52C62D2B400D798FE /* Error.swift in Sources */,
+				8C4209E52C62D2B400D798FE /* ScopesError.swift in Sources */,
 				8C4209FA2C62EF9800D798FE /* LoginSignupView.swift in Sources */,
-				8CB92CC02C59BF000061B995 /* HoroscopeListItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,26 +462,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		8C4209FC2C630EFD00D798FE /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */ = {
+		8CAA6FD12C67DCCF00BF2844 /* XCRemoteSwiftPackageReference "Pow" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/aws-amplify/aws-sdk-ios-spm";
+			repositoryURL = "https://github.com/EmergeTools/Pow";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.36.7;
+				minimumVersion = 1.0.4;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		8C4209FD2C630EFD00D798FE /* AWSCore */ = {
+		8CAA6FD22C67DCCF00BF2844 /* Pow */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8C4209FC2C630EFD00D798FE /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
-			productName = AWSCore;
-		};
-		8C4209FF2C630EFD00D798FE /* AWSSNS */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8C4209FC2C630EFD00D798FE /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
-			productName = AWSSNS;
+			package = 8CAA6FD12C67DCCF00BF2844 /* XCRemoteSwiftPackageReference "Pow" */;
+			productName = Pow;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

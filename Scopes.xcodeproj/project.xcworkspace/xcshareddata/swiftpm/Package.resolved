@@ -1,13 +1,13 @@
 {
-  "originHash" : "1766aeaa4acc33f51d4721e47b2c6baa3fd79fb263a4ecce86c0c021e05d81cc",
+  "originHash" : "ad2571106299969bc8c78dbd19c0d3b3e70730d6d17777fc50f70323a5c3d845",
   "pins" : [
     {
-      "identity" : "aws-sdk-ios-spm",
+      "identity" : "pow",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm",
+      "location" : "https://github.com/EmergeTools/Pow",
       "state" : {
-        "revision" : "048ba8f55deb04dd399c0c3a61b4addf54e0c36b",
-        "version" : "2.36.7"
+        "revision" : "f0d0f3e72d42beaf2b01f1cb798e1b55902814eb",
+        "version" : "1.0.4"
       }
     }
   ],
