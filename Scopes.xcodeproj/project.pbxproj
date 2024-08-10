@@ -21,8 +21,6 @@
 		8C4209FE2C630EFD00D798FE /* AWSCore in Frameworks */ = {isa = PBXBuildFile; productRef = 8C4209FD2C630EFD00D798FE /* AWSCore */; };
 		8C420A002C630EFD00D798FE /* AWSSNS in Frameworks */ = {isa = PBXBuildFile; productRef = 8C4209FF2C630EFD00D798FE /* AWSSNS */; };
 		8CB92C9F2C5911AD0061B995 /* ScopesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB92C9E2C5911AD0061B995 /* ScopesApp.swift */; };
-		8CB92CA12C5911AD0061B995 /* DemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB92CA02C5911AD0061B995 /* DemoView.swift */; };
-		8CB92CA32C5911AD0061B995 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB92CA22C5911AD0061B995 /* Item.swift */; };
 		8CB92CA52C5911AE0061B995 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CB92CA42C5911AE0061B995 /* Assets.xcassets */; };
 		8CB92CA82C5911AE0061B995 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CB92CA72C5911AE0061B995 /* Preview Assets.xcassets */; };
 		8CB92CB02C5913C70061B995 /* Horoscope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB92CAF2C5913C70061B995 /* Horoscope.swift */; };
@@ -45,10 +43,10 @@
 		8C4209F52C62EBB300D798FE /* UserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsView.swift; sourceTree = "<group>"; };
 		8C4209F92C62EF9800D798FE /* LoginSignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSignupView.swift; sourceTree = "<group>"; };
 		8C4209FB2C630CE200D798FE /* ScopesDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScopesDebug.entitlements; sourceTree = "<group>"; };
+		8CAA6FCF2C67A42B00BF2844 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8CAA6FD02C67A44300BF2844 /* ScopesRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScopesRelease.entitlements; sourceTree = "<group>"; };
 		8CB92C9B2C5911AD0061B995 /* Scopes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scopes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CB92C9E2C5911AD0061B995 /* ScopesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScopesApp.swift; sourceTree = "<group>"; };
-		8CB92CA02C5911AD0061B995 /* DemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoView.swift; sourceTree = "<group>"; };
-		8CB92CA22C5911AD0061B995 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		8CB92CA42C5911AE0061B995 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8CB92CA72C5911AE0061B995 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8CB92CAF2C5913C70061B995 /* Horoscope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Horoscope.swift; sourceTree = "<group>"; };
@@ -90,6 +88,8 @@
 		8CB92C9D2C5911AD0061B995 /* Scopes */ = {
 			isa = PBXGroup;
 			children = (
+				8CAA6FD02C67A44300BF2844 /* ScopesRelease.entitlements */,
+				8CAA6FCF2C67A42B00BF2844 /* Info.plist */,
 				8C4209FB2C630CE200D798FE /* ScopesDebug.entitlements */,
 				8C4209EF2C62D60B00D798FE /* sample_horoscopes.json */,
 				8C4209E92C62D5C900D798FE /* sample_user.json */,
@@ -101,7 +101,6 @@
 				8CB92CB22C5914A60061B995 /* Services */,
 				8CB92CB12C5914890061B995 /* Models */,
 				8CB92C9E2C5911AD0061B995 /* ScopesApp.swift */,
-				8CB92CA22C5911AD0061B995 /* Item.swift */,
 				8CB92CA42C5911AE0061B995 /* Assets.xcassets */,
 				8CB92CA62C5911AE0061B995 /* Preview Content */,
 				8CB92CB82C59AC310061B995 /* ContentView.swift */,
@@ -139,7 +138,6 @@
 		8CB92CB72C59ABE80061B995 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8CB92CA02C5911AD0061B995 /* DemoView.swift */,
 				8CB92CBA2C59AF940061B995 /* HoroscopeDetailedView.swift */,
 				8C4209F32C62E56400D798FE /* HoroscopeListView.swift */,
 				8C4209F52C62EBB300D798FE /* UserDetailsView.swift */,
@@ -240,10 +238,8 @@
 			files = (
 				8C4209E72C62D4A900D798FE /* AppDelegate.swift in Sources */,
 				8CB92CB02C5913C70061B995 /* Horoscope.swift in Sources */,
-				8CB92CA12C5911AD0061B995 /* DemoView.swift in Sources */,
 				8C4209F42C62E56400D798FE /* HoroscopeListView.swift in Sources */,
 				8CB92CB92C59AC310061B995 /* ContentView.swift in Sources */,
-				8CB92CA32C5911AD0061B995 /* Item.swift in Sources */,
 				8CB92CBB2C59AF940061B995 /* HoroscopeDetailedView.swift in Sources */,
 				8C4209E32C62D24400D798FE /* User.swift in Sources */,
 				8C4209F62C62EBB300D798FE /* UserDetailsView.swift in Sources */,
@@ -390,6 +386,7 @@
 				DEVELOPMENT_TEAM = UYPY43BUFP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Scopes/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Scopes;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -416,12 +413,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = Scopes/ScopesRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Scopes/Preview Content\"";
 				DEVELOPMENT_TEAM = UYPY43BUFP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Scopes/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Scopes;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

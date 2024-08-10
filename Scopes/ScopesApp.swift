@@ -16,7 +16,6 @@ struct ScopesApp: App {
         
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
             Horoscope.self,
             User.self,
         ])

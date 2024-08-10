@@ -10,6 +10,7 @@ import SwiftData
 
 struct UserDetailsView: View {
     @AppStorage("isUserLoggedIn") private var isUserLoggedIn = false
+    @AppStorage("deviceToken") private var deviceToken = ""
     @Environment(\.modelContext) private var modelContext
     @Query private var users: [User]
     @Query private var horoscopes: [Horoscope]
@@ -48,7 +49,24 @@ struct UserDetailsView: View {
             }
             .navigationTitle("User Details")
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button(action: {
+                        print(deviceToken)
+                    }) {
+                        Image(systemName: "ladybug.fill")
+                    }
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button(action: {
+                        if isEditing {
+                            saveUserData()
+                        } else {
+                            startEditing()
+                        }
+                        isEditing.toggle()
+                    }) {
+                        Image(systemName: isEditing ? "checkmark" : "pencil")
+                    }
                     Button(isEditing ? "Done" : "Edit") {
                         if isEditing {
                             saveUserData()
