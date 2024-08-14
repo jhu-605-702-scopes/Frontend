@@ -14,14 +14,14 @@ struct UserDetailsView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var users: [User]
     @Query private var horoscopes: [Horoscope]
-
+    
     @State private var isEditing = false
     @State private var editedUser: User?
-
+    
     var user: User? {
         users.first
     }
-
+    
     var body: some View {
         NavigationView {
             List {
@@ -39,13 +39,21 @@ struct UserDetailsView: View {
                         set: { self.editedUser?.username = $0 }
                     ), isEditing: isEditing)
                 }
-
                 Section {
-                    Button("Logout") {
+                    Button(action: {
                         logout()
+                    }) {
+                        Text("Logout")
+                            .frame(maxWidth: .infinity)
+                            .foregroundColor(.white)
                     }
-                    .foregroundColor(.red)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.red)
+                    .cornerRadius(10)
                 }
+                .disabled(isEditing)
+                .listRowInsets(EdgeInsets())
             }
             .navigationTitle("User Details")
             .toolbar {
@@ -79,17 +87,17 @@ struct UserDetailsView: View {
             }
         }
     }
-
+    
     private func startEditing() {
         editedUser = user?.copy()
     }
-
+    
     private func saveUserData() {
         if let editedUser = editedUser, let user = user {
             user.name = editedUser.name
             user.email = editedUser.email
             user.username = editedUser.username
-
+            
             do {
                 try modelContext.save()
             } catch {
@@ -98,25 +106,25 @@ struct UserDetailsView: View {
         }
         editedUser = nil
     }
-
+    
     private func logout() {
         // Clear Horoscopes database
         for horoscope in horoscopes {
             modelContext.delete(horoscope)
         }
-
+        
         // Clear user data
         if let user = user {
             modelContext.delete(user)
         }
-
+        
         // Attempt to save changes
         do {
             try modelContext.save()
         } catch {
             print("Error clearing data: \(error)")
         }
-
+        
         // Set user as logged out
         isUserLoggedIn = false
     }
@@ -126,7 +134,7 @@ struct InfoRow: View {
     let label: String
     @Binding var value: String
     var isEditing: Bool
-
+    
     var body: some View {
         HStack {
             Text(label)

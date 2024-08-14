@@ -10,17 +10,25 @@ import SwiftData
 
 @Model
 final class User: Codable {
-    var id: Int
+    var id: String
     var name: String
     var username: String
     var email: String
     
-    init(id: Int, name: String, username: String, email: String) {
+    init(id: String, name: String, username: String, email: String) {
         self.id = id
         self.name = name
         self.username = username
         self.email = email
     }
+    
+    convenience init(from signUpData: UserJSON) {
+            self.init(id: signUpData.userId!,
+                      name: signUpData.name!,
+                      username: signUpData.username!,
+                      email: signUpData.email)
+        }
+
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -31,7 +39,7 @@ final class User: Codable {
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.id = try container.decode(Int.self, forKey: .id)
+        self.id = try container.decode(String.self, forKey: .id)
         self.name = try container.decode(String.self, forKey: .name)
         self.username = try container.decode(String.self, forKey: .username)
         self.email = try container.decode(String.self, forKey: .email)

@@ -122,10 +122,19 @@ struct LoginSignupView: View {
     
     private func logIn() async {
         isLoading = true
-//        defer { isLoading = false }
-//        do {
-//            print("Hi")
-//        }
+        defer { isLoading = false }
+        do {
+            let logInResponse = try await Requests.shared.logIn(email: email, password: password)
+            let user = User(from: logInResponse)
+            modelContext.insert(user)
+            try modelContext.save()
+            isUserLoggedIn = true
+        } catch let scopesError as ScopesError {
+            print("Log in error: \(scopesError.message)")
+        } catch {
+            fatalError("Unexpected login error: \(error)")
+        }
+
     }
 
     private func signUp() async {
@@ -133,7 +142,8 @@ struct LoginSignupView: View {
         defer { isLoading = false }
         
         do {
-            let user = try await Requests.shared.signUp(name: name, username: username, email: email, password: password)
+            let signUpResponse = try await Requests.shared.signUp(name: name, username: username, email: email, password: password)
+            let user = User(from: signUpResponse)
             modelContext.insert(user)
             try modelContext.save()
             
@@ -150,11 +160,12 @@ struct LogInSignUpResponse: Codable {
     let user: User
 }
 
-struct SignUpData: Codable {
-    let name: String
-    let username: String
+struct UserJSON: Codable {
+    let name: String?
+    let username: String?
     let email: String
     let password: String
+    let userId: String?
 }
 
 struct LogInData: Codable {
@@ -163,15 +174,16 @@ struct LogInData: Codable {
 }
 
 extension Requests {
-    func signUp(name: String, username: String, email: String, password: String) async throws -> User {
-        let signUpData = SignUpData(name: name, username: username, email: email, password: password)
-        let response: LogInSignUpResponse = try await post("/users", body: signUpData)
-        return response.user
+    func signUp(name: String, username: String, email: String, password: String) async throws -> UserJSON {
+        let signUpData = UserJSON(name: name, username: username, email: email, password: password, userId: nil)
+        let response: APIResponse = try await post("/users", body: signUpData)
+        return response.body
     }
     
-    func logIn(email: String, password: String) async throws -> User {
-        let logInData = LogInData(email: email, password: password)
-//        let response: LogInSignUpResponse = try await post("/")
-        return User(id: 1, name: "a", username: "b", email: "c")
+    func logIn(email: String, password: String) async throws -> UserJSON {
+        let logInData = UserJSON(name: nil, username: nil, email: email, password: password, userId: nil)
+        let response: APIResponse = try await post("/login", body: logInData)
+        return response.body
     }
 }
+

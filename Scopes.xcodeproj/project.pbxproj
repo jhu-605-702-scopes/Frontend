@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C188DA62C6C388D0061EE65 /* NotificationRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C188DA52C6C388D0061EE65 /* NotificationRegistration.swift */; };
 		8C4209E32C62D24400D798FE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4209E22C62D24400D798FE /* User.swift */; };
 		8C4209E52C62D2B400D798FE /* ScopesError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4209E42C62D2B400D798FE /* ScopesError.swift */; };
 		8C4209E72C62D4A900D798FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4209E62C62D4A900D798FE /* AppDelegate.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C188DA52C6C388D0061EE65 /* NotificationRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationRegistration.swift; sourceTree = "<group>"; };
 		8C4209E22C62D24400D798FE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8C4209E42C62D2B400D798FE /* ScopesError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScopesError.swift; sourceTree = "<group>"; };
 		8C4209E62C62D4A900D798FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				8CB92CB32C59154A0061B995 /* Requests.swift */,
+				8C188DA52C6C388D0061EE65 /* NotificationRegistration.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				8C4209F42C62E56400D798FE /* HoroscopeListView.swift in Sources */,
 				8CB92CB92C59AC310061B995 /* ContentView.swift in Sources */,
 				8CB92CBB2C59AF940061B995 /* HoroscopeDetailedView.swift in Sources */,
+				8C188DA62C6C388D0061EE65 /* NotificationRegistration.swift in Sources */,
 				8C4209E32C62D24400D798FE /* User.swift in Sources */,
 				8C4209F62C62EBB300D798FE /* UserDetailsView.swift in Sources */,
 				8CB92CB42C59154A0061B995 /* Requests.swift in Sources */,
@@ -385,7 +389,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Scopes/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Scopes;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -396,7 +400,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.scopes.Scopes;
+				PRODUCT_BUNDLE_IDENTIFIER = app.getscopes.Scopes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -419,7 +423,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Scopes/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Scopes;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -430,7 +434,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.scopes.Scopes;
+				PRODUCT_BUNDLE_IDENTIFIER = app.getscopes.Scopes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

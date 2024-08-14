@@ -11,7 +11,7 @@ actor Requests {
     static let shared = Requests()
     private init() {}
 
-    let API_HOST: String = "https://localhost:9090"
+    let API_HOST: String = "https://api.getscopes.app"
     let API_BASE: String = "/v1"
 
     func get<T: Codable>(_ endpoint: String) async throws -> T {
@@ -44,6 +44,11 @@ actor Requests {
         }
 
         let (data, response) = try await URLSession.shared.data(for: request)
+        
+        if let jsonString = String(data: data, encoding: .utf8) {
+            print("Response for \(method) \(endpoint):")
+            print(jsonString)
+        }
 
         guard let httpResponse = response as? HTTPURLResponse else {
             throw NetworkError.invalidResponse
@@ -70,3 +75,18 @@ enum NetworkError: Error {
     case decodingError
 }
 
+
+struct APIResponse: Codable {
+    let statusCode: String
+    let body: UserJSON
+    let headers: Headers
+}
+
+
+struct Headers: Codable {
+    let contentType: String
+
+    enum CodingKeys: String, CodingKey {
+        case contentType = "Content-Type"
+    }
+}
