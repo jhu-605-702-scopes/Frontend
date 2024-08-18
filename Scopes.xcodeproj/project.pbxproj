@@ -19,7 +19,6 @@
 		8C4209F42C62E56400D798FE /* HoroscopeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4209F32C62E56400D798FE /* HoroscopeListView.swift */; };
 		8C4209F62C62EBB300D798FE /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4209F52C62EBB300D798FE /* UserDetailsView.swift */; };
 		8C4209FA2C62EF9800D798FE /* LoginSignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4209F92C62EF9800D798FE /* LoginSignupView.swift */; };
-		8CAA6FD32C67DCCF00BF2844 /* Pow in Frameworks */ = {isa = PBXBuildFile; productRef = 8CAA6FD22C67DCCF00BF2844 /* Pow */; };
 		8CAA6FD62C67ED7D00BF2844 /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAA6FD52C67ED7D00BF2844 /* Validators.swift */; };
 		8CB92C9F2C5911AD0061B995 /* ScopesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB92C9E2C5911AD0061B995 /* ScopesApp.swift */; };
 		8CB92CA52C5911AE0061B995 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CB92CA42C5911AE0061B995 /* Assets.xcassets */; };
@@ -62,7 +61,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CAA6FD32C67DCCF00BF2844 /* Pow in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,7 +170,6 @@
 			);
 			name = Scopes;
 			packageProductDependencies = (
-				8CAA6FD22C67DCCF00BF2844 /* Pow */,
 			);
 			productName = Scopes;
 			productReference = 8CB92C9B2C5911AD0061B995 /* Scopes.app */;
@@ -203,7 +200,6 @@
 			);
 			mainGroup = 8CB92C922C5911AD0061B995;
 			packageReferences = (
-				8CAA6FD12C67DCCF00BF2844 /* XCRemoteSwiftPackageReference "Pow" */,
 			);
 			productRefGroup = 8CB92C9C2C5911AD0061B995 /* Products */;
 			projectDirPath = "";
@@ -464,25 +460,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		8CAA6FD12C67DCCF00BF2844 /* XCRemoteSwiftPackageReference "Pow" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/EmergeTools/Pow";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.4;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		8CAA6FD22C67DCCF00BF2844 /* Pow */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8CAA6FD12C67DCCF00BF2844 /* XCRemoteSwiftPackageReference "Pow" */;
-			productName = Pow;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8CB92C932C5911AD0061B995 /* Project object */;
 }

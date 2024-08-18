@@ -7,7 +7,7 @@
 
 import SwiftUI
 import SwiftData
-import Pow
+
 
 struct LoginSignupView: View {
     @Binding var isUserLoggedIn: Bool
