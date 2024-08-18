@@ -94,7 +94,6 @@ struct LoginSignupView: View {
                     .cornerRadius(10)
                 }
                 .disabled(!isFormValid || isLoading)
-                .changeEffect(.shake(rate: .fast), value: loginAttempts)
                 .listRowInsets(EdgeInsets())
                 
                 
