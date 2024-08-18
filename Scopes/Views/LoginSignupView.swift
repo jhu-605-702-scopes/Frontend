@@ -20,7 +20,9 @@ struct LoginSignupView: View {
     @State private var isLoading = false
     @State private var loginAttempts = 0
     @State private var isError = false
-
+    @State private var errorMessage: String?
+    
+    
     private var isFormValid: Bool {
         if isLoginMode {
             return !email.isEmpty && !password.isEmpty
@@ -28,7 +30,7 @@ struct LoginSignupView: View {
             return !email.isEmpty && !password.isEmpty && !username.isEmpty && !name.isEmpty
         }
     }
-
+    
     
     var body: some View {
         NavigationView {
@@ -37,17 +39,34 @@ struct LoginSignupView: View {
                     TextField("Email", text: $email)
                         .autocapitalization(.none)
                         .keyboardType(.emailAddress)
+                        .onChange(of: email) {
+                            isError = false
+                            errorMessage = nil
+                        }
 
                     SecureField("Password", text: $password)
+                        .onChange(of: password) {
+                            isError = false
+                            errorMessage = nil
+                        }
 
                     if !isLoginMode {
                         TextField("Username", text: $username)
                             .autocapitalization(.none)
+                            .onChange(of: username) {
+                                isError = false
+                                errorMessage = nil
+                            }
                         TextField("Name", text: $name)
+                            .onChange(of: name) {
+                                isError = false
+                                errorMessage = nil
+                            }
                     }
+
                 }
                 .disabled(isLoading)
-
+                
                 Section {
                     Button(action: {
                         if isLoginMode {
@@ -64,7 +83,7 @@ struct LoginSignupView: View {
                             ProgressView()
                                 .frame(maxWidth: .infinity)
                         } else {
-                            Text(isLoginMode ? "Log In" : "Sign Up")
+                            Text(isError ? "Error!" : isLoginMode ? "Log In" : "Sign Up")
                                 .frame(maxWidth: .infinity)
                                 .foregroundColor(.white)
                         }
@@ -77,8 +96,8 @@ struct LoginSignupView: View {
                 .disabled(!isFormValid || isLoading)
                 .changeEffect(.shake(rate: .fast), value: loginAttempts)
                 .listRowInsets(EdgeInsets())
-
-
+                
+                
                 Section {
                     Button(action: {
                         isLoginMode.toggle()
@@ -87,73 +106,59 @@ struct LoginSignupView: View {
                     }
                 }
                 .disabled(isLoading)
-
+                
             }
             .navigationTitle("Scopes")
-        }
-    }
-
-    private func loadSampleUser() {
-        guard let url = Bundle.main.url(forResource: "sample_user", withExtension: "json") else {
-            print("Unable to find sample_user.json file")
-            return
-        }
-
-        do {
-            let data = try Data(contentsOf: url)
-            let decoder = JSONDecoder()
-            let sampleUser = try decoder.decode(User.self, from: data)
-
-            // Delete existing users
-            let existingUsers = try modelContext.fetch(FetchDescriptor<User>())
-            for user in existingUsers {
-                modelContext.delete(user)
+            .alert(isPresented: Binding<Bool>(
+                get: { self.errorMessage != nil },
+                set: { if !$0 { self.errorMessage = nil } }
+            )) {
+                Alert(title: Text("Error"),
+                      message: Text(errorMessage ?? "An unknown error occurred"),
+                      dismissButton: .default(Text("OK")))
             }
-
-            // Insert the sample user
-            modelContext.insert(sampleUser)
-
-            try modelContext.save()
-            isUserLoggedIn = true
-        } catch {
-            print("Error loading or decoding JSON: \(error)")
+            
         }
     }
     
     private func logIn() async {
-        isLoading = true
-        defer { isLoading = false }
-        do {
-            let logInResponse = try await Requests.shared.logIn(email: email, password: password)
-            let user = User(from: logInResponse)
-            modelContext.insert(user)
-            try modelContext.save()
-            isUserLoggedIn = true
-        } catch let scopesError as ScopesError {
-            print("Log in error: \(scopesError.message)")
-        } catch {
-            fatalError("Unexpected login error: \(error)")
+            isLoading = true
+            defer { isLoading = false }
+            do {
+                let logInResponse = try await Requests.shared.logIn(email: email, password: password)
+                let user = User(from: logInResponse)
+                modelContext.insert(user)
+                try modelContext.save()
+                isUserLoggedIn = true
+            } catch let scopesError as ScopesError {
+                errorMessage = scopesError.error
+                isError = true
+            } catch {
+                errorMessage = "An unexpected error occurred: \(error.localizedDescription)"
+                isError = true
+            }
         }
 
-    }
+        private func signUp() async {
+            isLoading = true
+            defer { isLoading = false }
 
-    private func signUp() async {
-        isLoading.toggle()
-        defer { isLoading = false }
-        
-        do {
-            let signUpResponse = try await Requests.shared.signUp(name: name, username: username, email: email, password: password)
-            let user = User(from: signUpResponse)
-            modelContext.insert(user)
-            try modelContext.save()
-            
-            isUserLoggedIn = true
-        } catch let scopesError as ScopesError {
-            print("Sign up error: \(scopesError.message)")
-        } catch {
-            fatalError("Unexpected error: \(error)")
+            do {
+                let signUpResponse = try await Requests.shared.signUp(name: name, username: username, email: email, password: password)
+                let user = User(from: signUpResponse)
+                modelContext.insert(user)
+                try modelContext.save()
+
+                isUserLoggedIn = true
+            } catch let scopesError as ScopesError {
+                errorMessage = scopesError.error
+                isError = true
+            } catch {
+                errorMessage = "An unexpected error occurred: \(error.localizedDescription)"
+                isError = true
+            }
         }
-    }
+
 }
 
 struct LogInSignUpResponse: Codable {
@@ -176,13 +181,13 @@ struct LogInData: Codable {
 extension Requests {
     func signUp(name: String, username: String, email: String, password: String) async throws -> UserJSON {
         let signUpData = UserJSON(name: name, username: username, email: email, password: password, userId: nil)
-        let response: APIResponse = try await post("/users", body: signUpData)
+        let response: LoginAPIResponse = try await post("/users", body: signUpData)
         return response.body
     }
     
     func logIn(email: String, password: String) async throws -> UserJSON {
         let logInData = UserJSON(name: nil, username: nil, email: email, password: password, userId: nil)
-        let response: APIResponse = try await post("/login", body: logInData)
+        let response: LoginAPIResponse = try await post("/login", body: logInData)
         return response.body
     }
 }

@@ -14,6 +14,12 @@ struct NotificationJSON: Codable {
 extension Requests {
     func registerNotifications(token: String) async throws {
         let notificationRegistrationData = NotificationJSON(token: token)
-        let response: APIResponse = try await post("/notifications", body: notificationRegistrationData)
+        try await postWithNoResponse("/notifications", body: notificationRegistrationData)
     }
+}
+
+struct NotificationAPIResponse: Codable {
+    let statusCode: String
+    let body: NotificationJSON
+    let headers: Headers
 }

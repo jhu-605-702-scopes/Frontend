@@ -24,6 +24,9 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             storedToken = token
             print("New Device Token saved: \(token)")
             // Send the token off to AWS
+            Task {
+             try await Requests.shared.registerNotifications(token: token)
+            }
         }
     }
 

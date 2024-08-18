@@ -11,19 +11,20 @@ import SwiftData
 struct HoroscopeDetailedView: View {
     @Bindable var horoscope: Horoscope
     @State var horoscopeFeedback: String = ""
+    @State private var originalFeedback: String = ""
+
     @Environment(\.modelContext) private var modelContext
-
-
     init(_ horoscope: Horoscope) {
         self.horoscope = horoscope
         _horoscopeFeedback = State(initialValue: horoscope.feedback)
+        _originalFeedback = State(initialValue: horoscope.feedback)
     }
-    
+
     var body: some View {
         VStack(spacing: 30) {
             Spacer()
             
-            Text(horoscope.emojiString())
+            Text(horoscope.emojiString)
                 .font(.system(size: 66, weight: .bold, design: .rounded))
                 .foregroundColor(.primary)
                 .frame(maxWidth: .infinity)
@@ -35,30 +36,38 @@ struct HoroscopeDetailedView: View {
                 .cornerRadius(10)
                 .padding(.horizontal, 20)
             Spacer()
-//            Text(horoscope.date, style: .date)
-//                .font(.caption)
-//                .foregroundColor(.secondary)
-//                .padding(.bottom)
         } // VStack
         .padding()
         .navigationTitle(Text(horoscope.date, style: .date))
         .onDisappear() {
-            saveFeedback(horoscopeFeedback)
+            Task {
+                await saveFeedback()
+            }
         }
         
     }
-    private func saveFeedback(_ feedback: String) {
-        horoscope.feedback = feedback
+    private func saveFeedback() async {
+        guard horoscopeFeedback != originalFeedback else { return }
+
         do {
-            try modelContext.save()
+            horoscope.feedback = horoscopeFeedback
+            try await Requests.shared.updateHoroscope(horoscope)
+            originalFeedback = horoscopeFeedback
         } catch {
-            print("Failed to save feedback: \(error)")
-        }    }
+            horoscopeFeedback = originalFeedback // Revert to original feedback if update fails
+        }
+    }
 }
 
+extension Requests {
+    func updateHoroscope(_ horoscope: Horoscope) async throws {
+        let endpoint = "/users/\(horoscope.userId)/horoscopes/\(horoscope.isoDateString)"
+        let updateData = HoroscopeUpdateData(emojis: horoscope.emojis, feedback: horoscope.feedback)
+        try await postWithNoResponse(endpoint, body: updateData)
+    }
+}
 
-
-#Preview {
-    HoroscopeDetailedView(Horoscope(date: Date(), emojis: ["🫢","🫡","🤫"], feedback: "Ay yuh")
-)
+struct HoroscopeUpdateData: Codable {
+    let emojis: [String]
+    let feedback: String
 }

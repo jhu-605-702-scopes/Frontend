@@ -56,35 +56,6 @@ struct UserDetailsView: View {
                 .listRowInsets(EdgeInsets())
             }
             .navigationTitle("User Details")
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button(action: {
-                        print(deviceToken)
-                    }) {
-                        Image(systemName: "ladybug.fill")
-                    }
-                }
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button(action: {
-                        if isEditing {
-                            saveUserData()
-                        } else {
-                            startEditing()
-                        }
-                        isEditing.toggle()
-                    }) {
-                        Image(systemName: isEditing ? "checkmark" : "pencil")
-                    }
-                    Button(isEditing ? "Done" : "Edit") {
-                        if isEditing {
-                            saveUserData()
-                        } else {
-                            startEditing()
-                        }
-                        isEditing.toggle()
-                    }
-                }
-            }
         }
     }
     
@@ -108,25 +79,26 @@ struct UserDetailsView: View {
     }
     
     private func logout() {
-        // Clear Horoscopes database
         for horoscope in horoscopes {
             modelContext.delete(horoscope)
         }
         
-        // Clear user data
         if let user = user {
             modelContext.delete(user)
         }
         
-        // Attempt to save changes
         do {
             try modelContext.save()
         } catch {
             print("Error clearing data: \(error)")
         }
         
-        // Set user as logged out
         isUserLoggedIn = false
+    }
+    
+    private func debug() {
+        print("Device token: \(deviceToken)")
+        print("---")
     }
 }
 

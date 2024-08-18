@@ -8,11 +8,5 @@
 import Foundation
 
 struct ScopesError: Codable, Error {
-    let code: Int
-    let message: String
-    
-    init(code: Int, message: String) {
-        self.code = code
-        self.message = message
-    }
+    let error: String
 }

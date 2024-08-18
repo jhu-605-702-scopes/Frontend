@@ -1,58 +1,23 @@
-//
-//  Horoscope.swift
-//  Scopes
-//
-//  Created by Michael Eisemann on 7/30/24.
-//
-
 import Foundation
 import SwiftData
 
 @Model
-final class Horoscope: Codable {
+final class Horoscope {
     var date: Date
+    var isoDateString: String
     var emojis: [String]
     var feedback: String
-    
-    init(date: Date, emojis: [String], feedback: String) {
+    var userId: String
+
+    init(date: Date, isoDateString: String, emojis: [String], feedback: String, userId: String) {
         self.date = date
+        self.isoDateString = isoDateString
         self.emojis = emojis
         self.feedback = feedback
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case date
-        case emojis
-        case feedback
-    }
-    
-    required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        
-        let dateString = try container.decode(String.self, forKey: .date)
-        let dateFormatter = ISO8601DateFormatter()
-        guard let date = dateFormatter.date(from: dateString) else {
-            throw DecodingError.dataCorruptedError(forKey: .date, in: container, debugDescription: "Date string does not match format expected by formatter.")
-        }
-        self.date = date
-        
-        self.emojis = try container.decode([String].self, forKey: .emojis)
-        self.feedback = try container.decode(String.self, forKey: .feedback)
-    }
-    
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        
-        let dateFormatter = ISO8601DateFormatter()
-        let dateString = dateFormatter.string(from: date)
-        try container.encode(dateString, forKey: .date)
-        
-        try container.encode(emojis, forKey: .emojis)
-        try container.encode(feedback, forKey: .feedback)
+        self.userId = userId
     }
 
-    func emojiString() -> String {
+    var emojiString: String {
         return emojis.joined()
     }
-    
 }
