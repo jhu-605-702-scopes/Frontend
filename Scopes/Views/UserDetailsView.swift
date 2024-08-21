@@ -38,9 +38,9 @@ struct UserDetailsView: View {
                         get: { self.editedUser?.username ?? self.user?.username ?? "" },
                         set: { self.editedUser?.username = $0 }
                     ), isEditing: isEditing)
-                    #if DEBUG
-                    Text(deviceToken)
-                    #endif
+//                    #if DEBUG
+//                    Text(deviceToken)
+//                    #endif
                 }
                 Section {
                     Button(action: {
