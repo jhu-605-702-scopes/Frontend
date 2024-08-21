@@ -38,6 +38,15 @@ struct HoroscopeDetailedView: View {
             Spacer()
         } // VStack
         .padding()
+        .toolbar {
+            ToolbarItem {
+                Button(action: {
+                    shareScreenshot()
+                }) {
+                    Image(systemName: "square.and.arrow.up")
+                }
+            }
+        }
         .navigationTitle(Text(horoscope.date, style: .date))
         .onDisappear() {
             Task {
@@ -57,6 +66,13 @@ struct HoroscopeDetailedView: View {
             horoscopeFeedback = originalFeedback // Revert to original feedback if update fails
         }
     }
+    
+    private func shareScreenshot() {
+        let screenshot = self.snapshot()
+        let activityVC = UIActivityViewController(activityItems: [screenshot], applicationActivities: nil)
+        UIApplication.shared.windows.first?.rootViewController?.present(activityVC, animated: true, completion: nil)
+    }
+
 }
 
 extension Requests {
@@ -70,4 +86,24 @@ extension Requests {
 struct HoroscopeUpdateData: Codable {
     let emojis: [String]
     let feedback: String
+}
+
+
+import SwiftUI
+
+extension View {
+    func snapshot() -> UIImage {
+        let controller = UIHostingController(rootView: self)
+        let view = controller.view
+
+        let targetSize = controller.view.intrinsicContentSize
+        view?.bounds = CGRect(origin: .zero, size: targetSize)
+        view?.backgroundColor = .clear
+
+        let renderer = UIGraphicsImageRenderer(size: targetSize)
+
+        return renderer.image { _ in
+            view?.drawHierarchy(in: controller.view.bounds, afterScreenUpdates: true)
+        }
+    }
 }
